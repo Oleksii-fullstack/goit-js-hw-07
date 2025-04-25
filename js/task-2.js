@@ -27,21 +27,25 @@ const images = [
 
 const listElem = document.querySelector('.gallery');
 
-images.forEach(image => {
-  const listItemElem = document.createElement('li');
-  const imageElem = document.createElement('img');
-  imageElem.src = image.url;
-  imageElem.alt = image.alt;
-  imageElem.width = 200;
-  listItemElem.append(imageElem);
-  listElem.append(listItemElem);
-});
+const markup = images
+  .map(image => `<li><img src="${image.url}" alt="${image.alt}" width="360" /></li>`)
+  .join(" ");
 
-// const markup = images
-//   .map(image => `<li><img src="${image.url}" alt="${image.alt}" width="200" /></li>`)
-//   .join(" ");
+listElem.insertAdjacentHTML("beforeend", markup);
 
-// listElem.insertAdjacentHTML("beforeend", markup);
+
+// const imageItems = images.map(image => {
+//   const listItemElem = document.createElement('li');
+//   const imageElem = document.createElement('img');
+//   imageElem.src = image.url;
+//   imageElem.alt = image.alt;
+//   imageElem.width = 200;
+//   listItemElem.append(imageElem);
+//   return listItemElem;
+// });
+// listElem.append(...imageItems);
+// console.log(imageItems);
+
 
 
 
